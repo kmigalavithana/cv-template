@@ -11,7 +11,6 @@ const App = () => {
   const [activeTab, setActiveTab] = useState<string>('template');
 
   const renderContent = () => {
-    console.log("work");
       const componets: Record<string, React.JSX.Element> = {
         template: <TemplateSelector />,
         personal:<PersonalDetailsFrom/>,
@@ -19,7 +18,6 @@ const App = () => {
         professional:<ProfessionalDetailsFrom/>,
         skills:<SkillsDetailsFrom/>,
       }
-    console.log("work",componets.activeTab);
 
     return componets[activeTab];
   }

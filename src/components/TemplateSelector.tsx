@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import { templates } from "../utilities/fields-data/template.ts";
 
 const TemplateSelector:React.FC = () => {
 
-  const [template, setTemplate] = useState();
   return (
     <div>
       <h2 className="text-xl font-bold">Choose template</h2>

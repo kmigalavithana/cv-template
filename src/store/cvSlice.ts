@@ -11,8 +11,7 @@ const cvSlice = createSlice({
   initialState,
   reducers: {
     setSelectedTemplate: (state,action) => {
-    //  state.selectedTemplate =
-      console.log(action);
+       state.selectedTemplate = action.payload;
     }
   }
 })

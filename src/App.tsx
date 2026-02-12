@@ -7,39 +7,40 @@ import ProfessionalDetailsFrom from "./components/ProfessionalDetailsFrom.tsx";
 import SkillsDetailsFrom from "./components/SkillsDetailsFrom.tsx";
 
 const App = () => {
-
-  const [activeTab, setActiveTab] = useState<string>('template');
+  const [activeTab, setActiveTab] = useState<string>("template");
 
   const renderContent = () => {
-      const componets: Record<string, React.JSX.Element> = {
-        template: <TemplateSelector />,
-        personal:<PersonalDetailsFrom/>,
-        education:<EducationDetailsFrom/>,
-        professional:<ProfessionalDetailsFrom/>,
-        skills:<SkillsDetailsFrom/>,
-      }
+    const componets: Record<string, React.JSX.Element> = {
+      template: <TemplateSelector />,
+      personal: <PersonalDetailsFrom />,
+      education: <EducationDetailsFrom />,
+      professional: <ProfessionalDetailsFrom />,
+      skills: <SkillsDetailsFrom />,
+    };
 
     return componets[activeTab];
-  }
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-2 gap-8">
         <div>
           <nav className="flex space-x-1">
             {navTab.map((tab) => (
               <button
                 key={tab.id}
-                className={ `flex flex-1 items-center justify-cente border rounded-b-md ${activeTab === tab.id ? 'bg-blue-500' : 'bg-white'} `}
+                className={`flex flex-1 items-center justify-cente border rounded-b-md ${activeTab === tab.id ? "bg-blue-500" : "bg-white"} `}
                 onClick={() => setActiveTab(tab.id)}
-
               >
                 {tab.label}
               </button>
             ))}
           </nav>
+          {/*rendring the content based on the active tab*/}
+          <div className="min-h-[500px]">{renderContent()}</div>
         </div>
-        {renderContent()}
+        {/*templt preview part*/}
+        <div>Cv privew part</div>
       </div>
     </div>
   );

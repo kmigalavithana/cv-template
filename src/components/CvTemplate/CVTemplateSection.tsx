@@ -1,12 +1,12 @@
-import { navTab } from "./utilities/fields-data/nav-tab-button.ts";
+import { navTab } from "../../utilities/fields-data/nav-tab-button.ts";
 import React, { useState } from "react";
-import TemplateSelector from "./components/TemplateSelector.tsx";
-import PersonalDetailsFrom from "./components/PersonalDetailsFrom.tsx";
-import EducationDetailsFrom from "./components/EducationDetailsFrom.tsx";
-import ProfessionalDetailsFrom from "./components/ProfessionalDetailsFrom.tsx";
-import SkillsDetailsFrom from "./components/SkillsDetailsFrom.tsx";
+import TemplateSelector from "./TemplateSection/TemplateSelector.tsx";
+import PersonalDetailsFrom from "./TemplateSection/PersonalDetailsFrom.tsx";
+import EducationDetailsFrom from "./TemplateSection/EducationDetailsFrom.tsx";
+import ProfessionalDetailsFrom from "./TemplateSection/ProfessionalDetailsFrom.tsx";
+import SkillsDetailsFrom from "./TemplateSection/SkillsDetailsFrom.tsx";
 
-const App = () => {
+const CVTemplateSection = () => {
   const [activeTab, setActiveTab] = useState<string>("template");
 
   const renderContent = () => {
@@ -46,4 +46,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default CVTemplateSection;

@@ -8,15 +8,24 @@ const UserSignIn:React.FC = () => {
         email: '',
         password: '',
     })
+    // Handle change event for input fields
 
     const handleChnage = (event:React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
-        console.log(name, value);
+
+        // Update the state with the new value for the corresponding field
 
         setLoginInfo((prevState) => ({
             ...prevState,
             [name]: value,
         }))
+    }
+
+    // Handle form submission
+
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault()
+            console.log(LoginInfo)
     }
     return (
             <section className="bg-gray-50 dark:bg-gray-900 max-h-screen justify-center">
@@ -27,7 +36,7 @@ const UserSignIn:React.FC = () => {
                             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                                 Sign in to Flowbite
                             </h2>
-                            <form className="mt-8 space-y-6" action="#">
+                            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                                 <div>
                                     <label htmlFor="email"
                                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your

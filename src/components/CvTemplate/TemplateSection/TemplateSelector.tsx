@@ -2,11 +2,11 @@ import { templates } from "../../../utilities/fields-data/template.ts";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedTemplate } from "../../../store/cvSlice.ts";
 import React from "react";
-import type { RootDispatch, RootState } from "../../../store/store.ts";
+import type {AppDispatch,  RootState} from "../../../store/store.ts";
 
 const TemplateSelector:React.FC = () => {
 
-  const dispatch = useDispatch<RootDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
   const selectedTemplate = useSelector<RootState>((state) => state.selectedTemplate);
   console.log(selectedTemplate);
   return (

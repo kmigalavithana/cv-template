@@ -1,15 +1,17 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { UserSigninAPI } from "../utilities/api/UserSigninAPI.ts";
-import type { IUserPayload } from "../utilities/types/slice";
+import type { IAuthInitialState, IUserPayload } from "../utilities/types/slice";
 
-const initialState = {
+const initialState: IAuthInitialState = {
   loading: false,
   userId: "",
   userToken: "",
+  userName: "",
+  userEmail: "",
   isAuthenticated: false,
 };
 
-createSlice({
+const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
@@ -21,9 +23,8 @@ createSlice({
       .addCase(
         UserSigninAPI.fulfilled,
         (state, { payload }: PayloadAction<IUserPayload>) => {
-          state.isAuthenticated = true;
-          state.loading = false;
-          console.log(payload);
+          console.log({payload})
+          setPayloadDataForReduxStore(state,payload);
         },
       )
       .addCase(UserSigninAPI.rejected, (state) => {
@@ -32,3 +33,15 @@ createSlice({
       });
   },
 });
+
+const setPayloadDataForReduxStore = (
+  state: IAuthInitialState,
+  payload: IUserPayload,
+) => {
+  if (payload) {
+    state.isAuthenticated = true;
+    state.loading = false;
+    state.userToken = payload.user_details.user_token;
+  }
+};
+export default authSlice.reducer;

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { ILoginInfo } from "../../utilities/types/UserSign.ts";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../../store/store.ts";
+import { type TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../../store/store.ts";
 import { UserSigninAPI } from "../../utilities/api/UserSigninAPI.ts";
 
 const UserSignIn: React.FC = () => {
@@ -11,7 +11,14 @@ const UserSignIn: React.FC = () => {
   });
 
   const dispatch = useDispatch<AppDispatch>();
+  const useTypeSelector: TypedUseSelectorHook<RootState> = useSelector; // Replace with actual useSelector hook from react-redux
+  const isAuthenticated = useTypeSelector(
+    (state) => state.auth.isAuthenticated,
+  ); // Replace with actual authentication state from Redux store
   // Handle change event for input fields
+  useEffect(() => {
+    console.log(isAuthenticated);
+  }, [isAuthenticated]);
 
   const handleChnage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;

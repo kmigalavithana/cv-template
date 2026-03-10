@@ -23,8 +23,8 @@ const authSlice = createSlice({
       .addCase(
         UserSigninAPI.fulfilled,
         (state, { payload }: PayloadAction<IUserPayload>) => {
-          console.log({payload})
-          setPayloadDataForReduxStore(state,payload);
+          console.log({ payload });
+          setPayloadDataForReduxStore(state, payload);
         },
       )
       .addCase(UserSigninAPI.rejected, (state) => {
@@ -41,7 +41,10 @@ const setPayloadDataForReduxStore = (
   if (payload) {
     state.isAuthenticated = true;
     state.loading = false;
+    state.userId = payload.user_details.user_id;
     state.userToken = payload.user_details.user_token;
+    state.userName = payload.user_details.user_name;
+    state.userEmail = payload.user_details.user_email;
   }
 };
 export default authSlice.reducer;

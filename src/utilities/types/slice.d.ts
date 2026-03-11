@@ -1,5 +1,8 @@
+import type { IpersonalDetails } from "./cvTemplate.ts";
+
 export interface IInitialState {
   selectedTemplate: string;
+  personalDetails: IpersonalDetails;
 }
 
 export interface IAuthInitialState {
@@ -12,12 +15,11 @@ export interface IAuthInitialState {
 }
 
 export interface IUserPayload {
-  status: string;
+  status: number;
   user_details: {
     user_token: string;
     user_name: string;
     user_email: string;
     user_id: string;
-    isAuthenticated: boolean;
   };
 }

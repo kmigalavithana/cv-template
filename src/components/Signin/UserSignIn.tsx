@@ -18,7 +18,7 @@ const UserSignIn: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const useTypeSelector: TypedUseSelectorHook<RootState> = useSelector; // Replace with actual useSelector hook from react-redux
   const isAuthenticated = useTypeSelector(
-    (state) => state.auth.isAuthenticated,
+    (state:RootState) => state.auth.isAuthenticated,
   ); // Replace with actual authentication state from Redux store
   // Handle change event for input fields
 

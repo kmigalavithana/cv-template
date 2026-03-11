@@ -11,11 +11,11 @@ const TemplateSelector:React.FC = () => {
   console.log(selectedTemplate);
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold">Choose template</h2>
+      <h2 className="text-xl font-bold ">Choose template</h2>
       <div className='grid grid-cols-2 gap-6'>
         {templates.map((template) => (
           <div
-            className={selectedTemplate === template.id ?`border-2 border-blue-400 rounded-md shadow `: `bg-white`}
+            className={selectedTemplate === template.id ?`border-2 border-blue-400 rounded-md shadow  `: `bg-white`}
             key={template.id}
             // className="text-xl font-semibold text-gray-400"
            onClick={() => dispatch(setSelectedTemplate(template.id))}

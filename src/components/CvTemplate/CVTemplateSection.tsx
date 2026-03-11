@@ -5,6 +5,7 @@ import PersonalDetailsFrom from "./TemplateSection/PersonalDetailsFrom.tsx";
 import EducationDetailsFrom from "./TemplateSection/EducationDetailsFrom.tsx";
 import ProfessionalDetailsFrom from "./TemplateSection/ProfessionalDetailsFrom.tsx";
 import SkillsDetailsFrom from "./TemplateSection/SkillsDetailsFrom.tsx";
+import CvPreview from "../CvPriview/CvPreview.tsx";
 
 const CVTemplateSection = () => {
   const [activeTab, setActiveTab] = useState<string>("template");
@@ -29,7 +30,7 @@ const CVTemplateSection = () => {
             {navTab.map((tab) => (
               <button
                 key={tab.id}
-                className={`flex flex-1 items-center justify-cente border rounded-b-md ${activeTab === tab.id ? "bg-blue-500" : "bg-white"} `}
+                className={`flex flex-1 items-center justify-cente border rounded-b-md ${activeTab === tab.id ? "bg-blue-500" : "bg-white "} `}
                 onClick={() => setActiveTab(tab.id)}
               >
                 {tab.label}
@@ -37,10 +38,12 @@ const CVTemplateSection = () => {
             ))}
           </nav>
           {/*rendring the content based on the active tab*/}
-          <div className="min-h-[500px]">{renderContent()}</div>
+          <div className="min-h-[500px] ">{renderContent()}</div>
         </div>
         {/*templt preview part*/}
-        <div>Cv privew part</div>
+        <div className='bg-gray-50 rounded-md'>
+        <CvPreview/>
+        </div>
       </div>
     </div>
   );

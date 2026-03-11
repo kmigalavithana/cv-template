@@ -41,8 +41,8 @@ const CVTemplateSection = () => {
           <div className="min-h-[500px] ">{renderContent()}</div>
         </div>
         {/*templt preview part*/}
-        <div className='bg-gray-50 rounded-md'>
-        <CvPreview/>
+        <div className='bg-gray-50 rounded-md p-4'>
+        <CvPreview />
         </div>
       </div>
     </div>

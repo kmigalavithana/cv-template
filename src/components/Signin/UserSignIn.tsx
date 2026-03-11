@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import type { ILoginInfo } from "../../utilities/types/UserSign.ts";
-import { type TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import {
+  type TypedUseSelectorHook,
+  useDispatch,
+  useSelector,
+} from "react-redux";
 import type { AppDispatch, RootState } from "../../store/store.ts";
 import { UserSigninAPI } from "../../utilities/api/UserSigninAPI.ts";
+import { useNavigate } from "react-router";
 
 const UserSignIn: React.FC = () => {
   const [LoginInfo, setLoginInfo] = useState<ILoginInfo>({
@@ -16,8 +21,15 @@ const UserSignIn: React.FC = () => {
     (state) => state.auth.isAuthenticated,
   ); // Replace with actual authentication state from Redux store
   // Handle change event for input fields
+
+  const navigate = useNavigate();
+
   useEffect(() => {
-    console.log(isAuthenticated);
+    if (isAuthenticated) {
+      // Redirect to the dashboard or home page after successful login
+       // Replace with your desired route
+      navigate("/cv-template");
+    }
   }, [isAuthenticated]);
 
   const handleChnage = (event: React.ChangeEvent<HTMLInputElement>) => {
